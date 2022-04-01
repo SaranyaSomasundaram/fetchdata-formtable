@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>free api call</title>
+        <style>
+            table,tr,td,th{
+                border:1px solid green;
+                border-collapse: collapse;
+                width:1200px;
+                height: 50px;
+                
+            }
+            th{
+                font-size: 20px;
+            }
+            td{
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <table id="my-Table">
+            <tr>
+                
+                <th>API</th>
+                <th>Auth</th>
+                <th>Category</th>
+                <th>Cors</th>
+                <th>Description</th>
+                
+                <th>HTTPS</th>
+                
+                <th>Link</th>
+                
+            </tr>
+            
+            <script>
+                fetch("https://api.publicapis.org/entries",{method:"get"})
+                .then((response)=>response.json())
+                .then((res)=> 
+                { 
+                    console.log(res)
+                    
+                res.entries.forEach((element) => {
+                    var tr=document.createElement("TR")
+                    
+
+                    
+                    var td1=document.createElement("TD")
+                    td1.append(element.API)
+                    var td2=document.createElement("TD")
+                    td2.append(element.Auth)
+                    
+                    var td3=document.createElement("TD")
+                    td3.append(element.Category)
+                    var td4=document.createElement("TD")
+                    td4.append(element.Cors)
+                    
+                    var td5=document.createElement("TD")
+                    td5.append(element.Description)
+                    
+                    var td6=document.createElement("TD")
+                    td6.append(element.HTTPS)
+                    
+                    var td7=document.createElement("TD")
+                    td7.append(element.Link)
+                    tr.append(td1)
+                    tr.append(td2)
+                    tr.append(td3)
+                    tr.append(td4)
+                    tr.append(td5)
+                    tr.append(td6)
+                    tr.append(td7)
+                    console.log(tr)
+                    document.getElementById("my-Table").append(tr);
+                    
+                       })
+                })
+            
+
+            </script>
+            
+        
+</table>
+
+
+
+
+    </body>
+</html>
